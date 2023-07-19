@@ -83,7 +83,7 @@ public class LocationService : ILocationService
         if (!BookingRulesValidator.BookingCanBeProcessed(booking))
             throw new ApplicationException("Booking is completed");
 
-        booking.State++;
+        booking.UpdateBookingState();
 
         await _bookingRepository.SaveAsync(cancellationToken);
         return _mapper.Map<ProcessBookingResponseDto>(booking);

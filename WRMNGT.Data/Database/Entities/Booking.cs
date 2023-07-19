@@ -26,4 +26,10 @@ public class Booking : BaseEntity, IEntityCreatedAt
     public DateTimeOffset CreatedAt { get; set; }
 
 
+    public void UpdateBookingState()
+    {
+        this.State++;
+    }
+
+
 }
